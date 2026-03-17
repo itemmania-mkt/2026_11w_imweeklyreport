@@ -56,22 +56,21 @@
   .summary-icon{font-size:28px;}
   .summary-text{font-size:13.5px;color:var(--navy);line-height:1.75;font-weight:500;}
 
-  /* ALERT */
+  /* ALERT - 하락=파랑, 상승=빨강 */
   .alert-grid{display:grid;gap:10px;grid-template-columns:1fr;}
   @media(min-width:600px){.alert-grid{grid-template-columns:1fr 1fr;}}
   @media(min-width:900px){.alert-grid{grid-template-columns:repeat(4,1fr);}}
   .alert-card{border-radius:var(--radius-sm);padding:16px;
     display:flex;align-items:flex-start;gap:12px;}
-  /* 하락=파랑, 상승=빨강 */
-  .alert-card.warn{background:var(--blue-light);border-left:3px solid var(--blue);}
+  .alert-card.down{background:var(--blue-light);border-left:3px solid var(--blue);}
+  .alert-card.up{background:var(--red-light);border-left:3px solid var(--red);}
   .alert-card.info{background:var(--blue-light);border-left:3px solid var(--blue);}
-  .alert-card.pos{background:var(--red-light);border-left:3px solid var(--red);}
   .alert-icon{font-size:24px;flex-shrink:0;}
   .alert-label{font-size:11px;color:var(--gray);font-weight:600;margin-bottom:3px;}
   .alert-val{font-size:17px;font-weight:800;}
-  .alert-card.warn .alert-val{color:var(--blue);}
+  .alert-card.down .alert-val{color:var(--blue);}
+  .alert-card.up .alert-val{color:var(--red);}
   .alert-card.info .alert-val{color:var(--blue);}
-  .alert-card.pos  .alert-val{color:var(--red);}
   .alert-desc{font-size:11.5px;color:var(--gray);margin-top:3px;line-height:1.45;}
 
   /* KPI GRID */
@@ -188,7 +187,6 @@
   .task-box{background:var(--surface);border-radius:var(--radius-sm);padding:20px;box-shadow:var(--shadow);}
   .task-box-title{font-size:13.5px;font-weight:700;color:var(--navy-light);
     margin-bottom:14px;display:flex;align-items:center;gap:7px;}
-  .task-box-title .badge{background:var(--blue);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;}
   .task-group{margin-bottom:12px;}
   .task-group-title{font-size:12px;font-weight:700;color:var(--blue);margin-bottom:5px;}
   .task-item{font-size:12px;color:var(--gray);padding:3px 0 3px 10px;
@@ -196,14 +194,7 @@
   .task-sub{font-size:11.5px;color:var(--gray);padding:2px 0 2px 20px;
     margin-bottom:2px;line-height:1.5;margin-left:8px;}
 
-  /* FAB */
-  .fab{position:fixed;bottom:24px;right:22px;width:52px;height:52px;
-    background:var(--blue);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 4px 18px rgba(0,86,179,.4);cursor:pointer;z-index:999;
-    transition:transform .2s,box-shadow .2s;border:none;}
-  .fab:hover{transform:scale(1.1);box-shadow:0 6px 26px rgba(0,86,179,.5);}
-  .fab svg{width:22px;height:22px;fill:#fff;}
+
 
   /* FOOTER */
   .footer{text-align:center;padding:26px;font-size:12px;color:var(--gray);
@@ -226,16 +217,16 @@
     <div class="section-title">핵심 요약 · Summary</div>
     <div class="summary-grid">
       <div class="summary-card">
-        <div class="summary-icon">👥</div>
-        <div class="summary-text">방문자수(UV)는 전주 대비 <strong>+0.13%</strong>로 소폭 증가했으나, 신규 가입자(-5.87%) 및 로그인(-0.58%)이 감소하며 유입 트래픽의 <strong>활성 전환 효율 저하</strong>가 나타났습니다.</div>
+        <div class="summary-icon">💹</div>
+        <div class="summary-text">거래자 수가 전주 대비 <strong>+65.55% 급증</strong>하며 거래 건수(+1.93%)를 견인했으나, 단가 하락으로 총 거래금액은 <strong>-6.53% 감소</strong>. 하락 요인은 리니지클래식 시세하락, 메이플스토리 개학 시즌 저가 거래 집중으로 분석됩니다.</div>
       </div>
       <div class="summary-card">
-        <div class="summary-icon">💹</div>
-        <div class="summary-text">거래건수는 <strong>+1.93% 증가</strong>했으나, 평균 거래 단가가 <strong>-43.54% 급감</strong>하며 총 거래금액은 287억원(-6.53%)으로 하락, 저가 아이템 중심 거래 비중이 확대되었습니다.</div>
+        <div class="summary-icon">📈</div>
+        <div class="summary-text">유기적 SNS 채널 활성화 및 SEO 최적화로 GSC 클릭수 <strong>+5.06%</strong>, 노출수 <strong>+4.83%</strong>가 동반 상승하며 최상단 퍼널의 <strong>안정적 성장</strong>을 확인했습니다.</div>
       </div>
       <div class="summary-card">
         <div class="summary-icon">🚀</div>
-        <div class="summary-text">거래유저(UV) <strong>+65.55% 증가</strong> 및 검색 효율성(CTR) 38.39% 견조 유지 — 리니지클래식·쏠 인챈트 등 주요 IP 연계 프로모션 강화 및 정밀 타겟 LMS/DM 운영으로 전환 및 수익성 회복을 추진할 예정.</div>
+        <div class="summary-text">저효율 매체 집행을 축소하고, <strong>리니지클래식·솔인챈트</strong> 등 대형 IP 연계 프로모션 및 타겟팅 기반 CRM 캠페인에 집중하여 실질 전환율을 제고할 계획입니다.</div>
       </div>
     </div>
   </div>
@@ -244,15 +235,7 @@
   <div class="section">
     <div class="section-title">⚠️ 주요 변동 알림 (±10% 이상)</div>
     <div class="alert-grid">
-      <div class="alert-card warn">
-        <div class="alert-icon">💸</div>
-        <div>
-          <div class="alert-label">평단가</div>
-          <div class="alert-val">▼ 43.54%</div>
-          <div class="alert-desc">590,491 → 333,415원<br>저가 아이템 거래 비중 확대</div>
-        </div>
-      </div>
-      <div class="alert-card warn">
+      <div class="alert-card down">
         <div class="alert-icon">🛒</div>
         <div>
           <div class="alert-label">판매자</div>
@@ -260,7 +243,15 @@
           <div class="alert-desc">53,605 → 45,728명<br>판매자 공급 감소 모니터링</div>
         </div>
       </div>
-      <div class="alert-card pos">
+      <div class="alert-card down">
+        <div class="alert-icon">💰</div>
+        <div>
+          <div class="alert-label">거래금액</div>
+          <div class="alert-val">▼ 6.53%</div>
+          <div class="alert-desc">307.3억 → 287.2억원<br>단가 하락으로 거래금액 감소</div>
+        </div>
+      </div>
+      <div class="alert-card up">
         <div class="alert-icon">👥</div>
         <div>
           <div class="alert-label">거래자(UV)</div>
@@ -342,9 +333,9 @@
 
       <div class="kpi-card down">
         <div class="kpi-label">평단가</div>
-        <div class="kpi-value">333,415원</div>
-        <div class="kpi-sub">전주: 590,491원</div>
-        <span class="kpi-wow down">▼ 43.54%</span>
+        <div class="kpi-value">178,854원</div>
+        <div class="kpi-sub">전주: 195,039원</div>
+        <span class="kpi-wow down">▼ 8.30%</span>
       </div>
 
       <div class="kpi-card up">
@@ -423,22 +414,22 @@
       <div class="ga4-card">
         <div class="ga4-label">스크롤 진행율</div>
         <div class="ga4-value">55.74%</div>
-        <span class="ga4-wow down">▼ 3.31%</span>
+        <span class="ga4-wow down">▼ 0.02%</span>
       </div>
       <div class="ga4-card">
         <div class="ga4-label">게임 검색수</div>
         <div class="ga4-value">10,933,183</div>
-        <span class="ga4-wow down">▼ 4.18%</span>
+        <span class="ga4-wow up">▲ 4.80%</span>
       </div>
       <div class="ga4-card">
         <div class="ga4-label">판매등록수</div>
         <div class="ga4-value">213,618</div>
-        <span class="ga4-wow down">▼ 11.52%</span>
+        <span class="ga4-wow down">▼ 7.69%</span>
       </div>
       <div class="ga4-card">
         <div class="ga4-label">구매등록수</div>
         <div class="ga4-value">16,784</div>
-        <span class="ga4-wow down">▼ 12.47%</span>
+        <span class="ga4-wow up">▲ 12.43%</span>
       </div>
     </div>
   </div>
@@ -498,20 +489,20 @@
         <div class="funnel-wrap">
           <div class="funnel-step s1">
             <div class="funnel-label">👁 조회된 상품</div>
-            <div class="funnel-val">1,438,942</div>
+            <div class="funnel-val">1,529,876</div>
             <div class="funnel-rate">100%</div>
           </div>
           <div class="funnel-arrow">▼</div>
           <div class="funnel-step s2">
             <div class="funnel-label">💳 결제된 상품</div>
-            <div class="funnel-val">135,816</div>
-            <div class="funnel-rate">전환율 9.44%</div>
+            <div class="funnel-val">156,765</div>
+            <div class="funnel-rate">전환율 10.25%</div>
           </div>
           <div class="funnel-arrow">▼</div>
           <div class="funnel-step s3">
             <div class="funnel-label">✅ 구매된 상품</div>
-            <div class="funnel-val">124,778</div>
-            <div class="funnel-rate">전환율 8.67%</div>
+            <div class="funnel-val">139,173</div>
+            <div class="funnel-rate">전환율 9.10%</div>
           </div>
         </div>
       </div>
@@ -535,34 +526,34 @@
           <div class="conv-item">
             <div class="conv-header">
               <div class="conv-rank">1</div>
-              <div class="conv-name">패스오브엑자일</div>
+              <div class="conv-name">메이플스토리</div>
             </div>
             <div class="conv-metric-row">
-              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">27,286</div></div>
-              <div><div class="conv-metric-label">결제 (20.31%)</div><div class="conv-metric-val">5,542</div></div>
-              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">21.42%</div></div>
+              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">28,349</div></div>
+              <div><div class="conv-metric-label">결제 (19.97%)</div><div class="conv-metric-val">5,662</div></div>
+              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">27.52%</div></div>
             </div>
           </div>
           <div class="conv-item">
             <div class="conv-header">
               <div class="conv-rank" style="background:#9B59B6">2</div>
-              <div class="conv-name">로스트아크</div>
+              <div class="conv-name">패스오브엑자일</div>
             </div>
             <div class="conv-metric-row">
-              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">22,629</div></div>
-              <div><div class="conv-metric-label">결제 (0.03%)</div><div class="conv-metric-val">3,789</div></div>
-              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">18.95%</div></div>
+              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">28,140</div></div>
+              <div><div class="conv-metric-label">결제 (20.75%)</div><div class="conv-metric-val">5,838</div></div>
+              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">21.54%</div></div>
             </div>
           </div>
           <div class="conv-item">
             <div class="conv-header">
               <div class="conv-rank" style="background:var(--green)">3</div>
-              <div class="conv-name">오딘:발할라라이징</div>
+              <div class="conv-name">로스트아크</div>
             </div>
             <div class="conv-metric-row">
-              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">10,380</div></div>
-              <div><div class="conv-metric-label">결제 (0.02%)</div><div class="conv-metric-val">2,211</div></div>
-              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">18.15%</div></div>
+              <div><div class="conv-metric-label">조회</div><div class="conv-metric-val">25,229</div></div>
+              <div><div class="conv-metric-label">결제 (18.26%)</div><div class="conv-metric-val">4,606</div></div>
+              <div><div class="conv-metric-label">구매전환</div><div class="conv-metric-val hl">18.70%</div></div>
             </div>
           </div>
         </div>
@@ -585,33 +576,33 @@
         <div class="traffic-list">
           <div class="traffic-item">
             <div class="traffic-source">🔵 Direct</div>
-            <div class="traffic-sessions">2,431,843 세션</div>
-            <div class="traffic-purchases">87,610 구매</div>
+            <div class="traffic-sessions">2,448,586 세션</div>
+            <div class="traffic-purchases">89,597 구매</div>
             <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:100%"></div></div></div>
           </div>
           <div class="traffic-item">
             <div class="traffic-source">🟢 Google Organic</div>
-            <div class="traffic-sessions">201,954 세션</div>
-            <div class="traffic-purchases">19,516 구매</div>
-            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:8.3%"></div></div></div>
+            <div class="traffic-sessions">206,922 세션</div>
+            <div class="traffic-purchases">20,255 구매</div>
+            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:8.5%"></div></div></div>
           </div>
           <div class="traffic-item">
             <div class="traffic-source">🟠 m.Naver Referral</div>
-            <div class="traffic-sessions">155,080 세션</div>
-            <div class="traffic-purchases">4,629 구매</div>
-            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:6.4%"></div></div></div>
+            <div class="traffic-sessions">162,250 세션</div>
+            <div class="traffic-purchases">4,315 구매</div>
+            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:6.6%"></div></div></div>
           </div>
           <div class="traffic-item">
             <div class="traffic-source">🟡 Naver Organic</div>
-            <div class="traffic-sessions">150,499 세션</div>
-            <div class="traffic-purchases">19,069 구매</div>
-            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:6.2%"></div></div></div>
+            <div class="traffic-sessions">154,106 세션</div>
+            <div class="traffic-purchases">19,063 구매</div>
+            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:6.3%"></div></div></div>
           </div>
           <div class="traffic-item">
             <div class="traffic-source">⚪ Bing Organic</div>
-            <div class="traffic-sessions">33,528 세션</div>
-            <div class="traffic-purchases">4,774 구매</div>
-            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:1.4%"></div></div></div>
+            <div class="traffic-sessions">32,403 세션</div>
+            <div class="traffic-purchases">4,658 구매</div>
+            <div class="traffic-bar-row"><div class="traffic-bar-bg"><div class="traffic-bar-fill" style="width:1.3%"></div></div></div>
           </div>
         </div>
       </div>
@@ -671,7 +662,7 @@
           <div class="task-item">SNS(유튜브·인스타그램·X·스레드·페이스북) 채널 운영 및 게시글 업로드</div>
           <div class="task-item">리니지클래식 콘텐츠 제작 및 SNS 채널 배포</div>
           <div class="task-item">물품 아이템 소개 영상 제작</div>
-          <div class="task-item">'솔:인챈트' 유튜브 쇼츠, 디스코드 개설</div>
+          <div class="task-item">&#39;솔:인챈트&#39; 유튜브 쇼츠, 디스코드 개설</div>
         </div>
         <div class="task-group">
           <div class="task-group-title">2. 전환 강화 (CRM/LMS)</div>
@@ -682,7 +673,7 @@
           <div class="task-group-title">3. 광고 효율 관리 (매체 정비)</div>
           <div class="task-item">게토 PC방 리뉴얼 이벤트 선착순 쿠폰 배포 일정 협의 완료</div>
           <div class="task-item">유튜브 광고(벡스베리) 계약 및 배너 제작 완료</div>
-          <div class="task-item">컬쳐랜드·컬쳐플러스·숲TV 광고 중단 확정</div>
+          <div class="task-item">광고 효율 개선을 위해 컬쳐랜드, 컬쳐플러스, 숲TV 광고 중단 확정</div>
         </div>
         <div class="task-group">
           <div class="task-group-title">4. 플랫폼 안정화 (기능 개선)</div>
@@ -698,7 +689,7 @@
           <div class="task-sub">- 리니지M: 신서버 오픈 기념 타겟팅 광고 배너 제작</div>
           <div class="task-item">퍼포먼스 &amp; 오가닉 매체 운영</div>
           <div class="task-sub">- 퍼포먼스: 구글/네이버 검색형 유튜브 GIF 배너 기획</div>
-          <div class="task-sub">- 오가닉: 주요 SNS 리니지클래식/쏠인챈트 콘텐츠 발행</div>
+          <div class="task-sub">- 오가닉: 주요 SNS(유튜브, 인스타, X 등) 리니지클래식/쏠인챈트 콘텐츠 발행</div>
         </div>
         <div class="task-group">
           <div class="task-group-title">2. 리텐션 (Retention)</div>
@@ -712,7 +703,7 @@
           <div class="task-item">광고 파트너스 생태계 구축</div>
           <div class="task-sub">- 파트너스 운영 정책 수립 및 UI/UX 피그마 기획 작업 진행</div>
           <div class="task-item">매니아 커뮤니티 확장</div>
-          <div class="task-sub">- 커뮤니티 내 '쏠 인챈트' 게임 신규 카테고리/기능 추가 (4/6 목표)</div>
+          <div class="task-sub">- 커뮤니티 내 &#39;쏠 인챈트&#39; 게임 신규 카테고리/기능 추가 (4/6 목표)</div>
         </div>
         <div class="task-group">
           <div class="task-group-title">4. 리스크 관리 (Risk Management)</div>
@@ -726,31 +717,19 @@
 </div>
 
 <div class="footer">
-  2026년 11주차 아이템매니아 마케팅 코어 인덱스 &nbsp;|&nbsp; 기간: 2026.03.09 ~ 2026.03.15 &nbsp;|&nbsp; 생성일: 2026.03.17 &nbsp;|&nbsp; CONFIDENTIAL
+  2026년 11주차 아이템매니아 마케팅 코어 인덱스 &nbsp;|&nbsp; 기간: 2026.03.09 ~ 2026.03.15 &nbsp;|&nbsp; 생성일: 2026.03.17 &nbsp;|&nbsp; index6 기준 &nbsp;|&nbsp; CONFIDENTIAL
 </div>
 
-<!-- FAB -->
-<button class="fab" id="fabBtn" title="HTML 다운로드">
-  <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zm7-18v12l-4-4-1.41 1.41L12 17l5.41-5.59L16 10l-4 4V2h-1z"/></svg>
-</button>
+
 
 <script>
-function downloadHTML(){
-  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html;charset=utf-8'});
-  const a=document.createElement('a');
-  a.href=URL.createObjectURL(blob);
-  a.download='아이템매니아_11주차_마케팅인덱스.html';
-  a.click();
-}
-document.getElementById('fabBtn').onclick=downloadHTML;
-
 Chart.defaults.font.family="'Pretendard',-apple-system,sans-serif";
 Chart.defaults.font.size=11;
 Chart.defaults.color='#6C757D';
 
 const weeks=['25년52주','26년1주','26년2주','26년3주','26년4주','26년5주','26년6주','26년7주','26년8주','26년9주','26년10주','26년11주'];
 
-// TREND (12주 끝: 52→11주)
+// TREND
 new Chart(document.getElementById('trendChart'),{
   type:'line',
   data:{labels:weeks,datasets:[
@@ -774,7 +753,7 @@ new Chart(document.getElementById('trendChart'),{
             y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{callback:v=>v+'억'}}}}
 });
 
-// GSC (최근 5주: 7~11주)
+// GSC
 const gscW=['26년7주','26년8주','26년9주','26년10주','26년11주'];
 new Chart(document.getElementById('gscChart'),{
   type:'bar',
@@ -787,7 +766,7 @@ new Chart(document.getElementById('gscChart'),{
     scales:{x:{grid:{display:false}},y:{grid:{color:'rgba(0,0,0,.04)'}}}}
 });
 
-// CTR (12주)
+// CTR
 new Chart(document.getElementById('ctrChart'),{
   type:'line',
   data:{labels:weeks,datasets:[{
@@ -802,7 +781,7 @@ new Chart(document.getElementById('ctrChart'),{
             y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{callback:v=>v+'%'},min:30,max:42}}}
 });
 
-// AGE
+// AGE (index4 데이터)
 new Chart(document.getElementById('ageChart'),{
   type:'doughnut',
   data:{labels:['18-24','25-34','35-44','45-54','55-64','65+'],
@@ -814,25 +793,25 @@ new Chart(document.getElementById('ageChart'),{
       tooltip:{callbacks:{label:ctx=>`${ctx.label}: ${ctx.parsed}%`}}}}
 });
 
-// CONVERSION
+// CONVERSION (index4 - 메이플스토리 1위)
 new Chart(document.getElementById('convChart'),{
   type:'bar',
-  data:{labels:['패스오브엑자일','로스트아크','오딘:발할라'],datasets:[
-    {label:'조회',data:[27286,22629,10380],backgroundColor:'rgba(0,86,179,.18)',borderRadius:4},
-    {label:'결제',data:[5542,3789,2211],backgroundColor:'rgba(0,86,179,.55)',borderRadius:4},
-    {label:'구매',data:[5844,4288,1884],backgroundColor:'#0056B3',borderRadius:4},
+  data:{labels:['메이플스토리','패스오브엑자일','로스트아크'],datasets:[
+    {label:'조회',data:[28349,28140,25229],backgroundColor:'rgba(0,86,179,.18)',borderRadius:4},
+    {label:'결제',data:[5662,5838,4606],backgroundColor:'rgba(0,86,179,.55)',borderRadius:4},
+    {label:'구매',data:[7802,6060,4717],backgroundColor:'#0056B3',borderRadius:4},
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'top',labels:{usePointStyle:true}}},
     scales:{x:{grid:{display:false}},y:{grid:{color:'rgba(0,0,0,.04)'}}}}
 });
 
-// TRAFFIC
+// TRAFFIC (index4 데이터)
 new Chart(document.getElementById('trafficChart'),{
   type:'bar',
   data:{labels:['Direct','Google','m.Naver','Naver','Bing'],datasets:[
-    {label:'세션수(천)',data:[2431.8,202.0,155.1,150.5,33.5],backgroundColor:'rgba(0,86,179,.25)',borderRadius:4},
-    {label:'구매수',data:[87610,19516,4629,19069,4774],backgroundColor:'#0056B3',borderRadius:4,yAxisID:'y2'},
+    {label:'세션수(천)',data:[2448.6,206.9,162.3,154.1,32.4],backgroundColor:'rgba(0,86,179,.25)',borderRadius:4},
+    {label:'구매수',data:[89597,20255,4315,19063,4658],backgroundColor:'#0056B3',borderRadius:4,yAxisID:'y2'},
   ]},
   options:{responsive:true,maintainAspectRatio:false,
     plugins:{legend:{position:'top',labels:{usePointStyle:true}}},
